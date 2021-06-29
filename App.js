@@ -1,22 +1,31 @@
-import React, {useState} from 'react'
-import {View, Text, Button} from 'react-native'
+import React from 'react'
+import {View, Text, StyleSheet} from 'react-native'
 
 function App(){
-  const [nome, setNome] = useState('Gabriel')
-  const [idade, setIdade] = useState(20)
-
-  function entrar(){
-    setNome('Felix!')
-    setIdade(25)
-  }
-
   return(
-    <View style={{marginTop: 25}}>
-      <Button title="Mudar nome" onPress={entrar}/>
-      <Text style={{fontSize: 19}}>{nome}</Text>
-      <Text style={{fontSize: 17}}>{idade} Anos</Text>
+    <View style={styles.area}>
+      <Text style={[styles.titulo, styles.textoAlinhado]}>Gabriel</Text>
+      <Text style={[styles.titulo, styles.textoAlinhado]}>20</Text>
+      <Text style={styles.subTitulo}>Sou um texto 3</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  area:{
+    marginTop: 50,
+  },
+  titulo:{
+    fontSize: 20,
+    color: '#ff0000'
+  },
+  subTitulo:{
+    color: '#00ff00',
+    fontSize: 17
+  },
+  textoAlinhado:{
+    textAlign: 'center'
+  }
+})
 
 export default App
