@@ -1,22 +1,20 @@
-import React from 'react'
-import {View, Text, Image} from 'react-native'
+import React, {useState} from 'react'
+import {View, Text, Button} from 'react-native'
 
 function App(){
-  const name = "Gabriel"
-  const img = "https://sujeitoprogramador.com/reactlogo.png"
+  const [nome, setNome] = useState('Gabriel')
+  const [idade, setIdade] = useState(20)
+
+  function entrar(){
+    setNome('Felix!')
+    setIdade(25)
+  }
+
   return(
-    <View>
-      <Text>Olá Mundo !!!!</Text>
-      <Text>Meu Primeiro App</Text>
-
-      <Image 
-        source={{uri: img}}
-        style={{width: 300, height: 300}}
-      />
-
-      <Text style={{fontSize: 19}}>
-        Olá {name}
-      </Text>
+    <View style={{marginTop: 25}}>
+      <Button title="Mudar nome" onPress={entrar}/>
+      <Text style={{fontSize: 19}}>{nome}</Text>
+      <Text style={{fontSize: 17}}>{idade} Anos</Text>
     </View>
   )
 }
