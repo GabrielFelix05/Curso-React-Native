@@ -1,31 +1,14 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text} from 'react-native'
 
 function App(){
   return(
-    <View style={styles.area}>
-      <Text style={[styles.titulo, styles.textoAlinhado]}>Gabriel</Text>
-      <Text style={[styles.titulo, styles.textoAlinhado]}>20</Text>
-      <Text style={styles.subTitulo}>Sou um texto 3</Text>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'space-between', flexDirection: "row"}}>
+      <View style={{width: 50, height: 50, backgroundColor: 'red'}}></View>
+      <View style={{width: 50, height: 50, backgroundColor: 'blue'}}></View>
+      <View style={{width: 50, height: 50, backgroundColor: 'green'}}></View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  area:{
-    marginTop: 50,
-  },
-  titulo:{
-    fontSize: 20,
-    color: '#ff0000'
-  },
-  subTitulo:{
-    color: '#00ff00',
-    fontSize: 17
-  },
-  textoAlinhado:{
-    textAlign: 'center'
-  }
-})
 
 export default App
