@@ -1,20 +1,19 @@
-import React from 'react'
-import {View, Text, StyleSheet, ScrollView} from 'react-native'
+import React, {useState} from 'react'
+import {View, Text, StyleSheet, FlatList} from 'react-native'
 
 function App(){
+  const [feed, setFeed] = useState([
+    {id: '1', nome: 'Gabriel', idade: 23, email: 'gabriel@gmail.com'},
+    {id: '2', nome: 'Gabriel', idade: 23, email: 'gabriel@gmail.com'},
+    {id: '3', nome: 'Gabriel', idade: 23, email: 'gabriel@gmail.com'},
+    {id: '4', nome: 'Gabriel', idade: 23, email: 'gabriel@gmail.com'}
+  ])
   return(
     <View style={styles.container}>
-      <ScrollView 
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-      >
-        <View style={styles.box1}></View>
-        <View style={styles.box2}></View>
-        <View style={styles.box3}></View>
-        <View style={styles.box4}></View>
-        <View style={styles.box2}></View>
-
-      </ScrollView> 
+      <FlatList
+        data={feed}
+        renderItem={({ item }) => <Pessoa data={item}/>}
+      />
     </View>
   )
 }
@@ -23,25 +22,25 @@ const styles = StyleSheet.create({
   container:{
     flex: 1
   },
-  box1:{
-    width: 150,
-    height: 250,
-    backgroundColor: 'red'
+  areaPessoa:{
+    backgroundColor: '#121212',
+    height: 200,
+    marginBottom: 15,
+    justifyContent: 'center'
   },
-  box2:{
-    width: 150,
-    height: 250,
-    backgroundColor: 'green'
-  },
-  box3:{
-    width: 150,
-    height: 250,
-    backgroundColor: 'yellow'
-  },
-  box4:{
-    width: 150,
-    height: 250,
-    backgroundColor: 'blue'
+  textPessoa:{
+    color: '#fff',
+    fontSize: 30
   }
 })
+
+function Pessoa(props){
+  return(
+    <View style={styles.areaPessoa}>
+      <Text style={styles.textPessoa}>{props.data.nome}</Text>
+      <Text style={styles.textPessoa}>{props.data.idade}</Text>
+      <Text style={styles.textPessoa}>{props.data.email}</Text>
+    </View>
+  )
+}
 export default App
