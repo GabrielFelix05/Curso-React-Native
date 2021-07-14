@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {View, Text, StyleSheet, FlatList} from 'react-native'
+import Pessoa from './src/Pessoa'
 
 function App(){
   const [feed, setFeed] = useState([
@@ -21,26 +22,7 @@ function App(){
 const styles = StyleSheet.create({
   container:{
     flex: 1
-  },
-  areaPessoa:{
-    backgroundColor: '#121212',
-    height: 200,
-    marginBottom: 15,
-    justifyContent: 'center'
-  },
-  textPessoa:{
-    color: '#fff',
-    fontSize: 30
   }
 })
 
-function Pessoa(props){
-  return(
-    <View style={styles.areaPessoa}>
-      <Text style={styles.textPessoa}>{props.data.nome}</Text>
-      <Text style={styles.textPessoa}>{props.data.idade}</Text>
-      <Text style={styles.textPessoa}>{props.data.email}</Text>
-    </View>
-  )
-}
 export default App
