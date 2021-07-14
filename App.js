@@ -1,91 +1,47 @@
-import React, {useState}from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
+import React from 'react'
+import {View, Text, StyleSheet, ScrollView} from 'react-native'
 
 function App(){
-  const[img, setImg] = useState(require('./src/biscoito.png'))
-  const[textoFrase, setTextoFrase] = useState('')
-
-  let frases = [
-    'Siga os bons e aprenda com eles.',
-    'O bom-senso vale mais do que muito conhecimento.',
-    'O riso é a menor distância entre duas pessoas.',
-    'Deixe de lado as preocupações e seja feliz.',
-    'Realize o óbvio, pense no improvável e conquiste o impossível.',
-    'Acredite  em milagres, mas não dependa deles.',
-    'A maior barreira para o sucesso é o medo do fracasso.'
-  ]
-
-  function quebraBiscoito(){
-    let numeroAleatorio = Math.floor(Math.random() * frases.length)
-    setTextoFrase(' "' + frases[numeroAleatorio] + '" ')
-    setImg(require("./src/biscoitoAberto.png"))
-  }
-
-  function reiniciarBiscoito(){
-    setImg(require('./src/biscoito.png'))
-    setTextoFrase('')
-  }
-
   return(
     <View style={styles.container}>
-      <Image
-        source={img}
-        style={styles.img}
-      />
-    <Text style={styles.textoFrase}>{textoFrase}</Text>
+      <ScrollView 
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      >
+        <View style={styles.box1}></View>
+        <View style={styles.box2}></View>
+        <View style={styles.box3}></View>
+        <View style={styles.box4}></View>
+        <View style={styles.box2}></View>
 
-    <TouchableOpacity 
-      style={styles.botao}
-      onPress={quebraBiscoito}>
-        <View style={styles.btnArea}>
-          <Text style={styles.btnTexto}>Quebrar Biscoito</Text>
-        </View>
-    </TouchableOpacity>
-
-    <TouchableOpacity 
-      style={[styles.botao, {marginTop: 15, borderColor: '#121212'}]}
-      onPress={reiniciarBiscoito}>
-        <View style={styles.btnArea}>
-          <Text style={[styles.btnTexto, {color: '#121212'}]}>Reiniciar Botão</Text>
-        </View>
-    </TouchableOpacity>
+      </ScrollView> 
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container:{
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   },
-  img:{
-    width: 230,
-    height: 230,
+  box1:{
+    width: 150,
+    height: 250,
+    backgroundColor: 'red'
   },
-  textoFrase:{
-    fontSize: 20,
-    color: '#dd7b22',
-    margin: 30,
-    fontStyle: 'italic',
-    textAlign: 'center'
+  box2:{
+    width: 150,
+    height: 250,
+    backgroundColor: 'green'
   },
-  botao:{
-    width: 230,
-    height: 50,
-    borderColor: '#dd7b22',
-    borderWidth: 2,
-    borderRadius: 25
+  box3:{
+    width: 150,
+    height: 250,
+    backgroundColor: 'yellow'
   },
-  btnArea:{
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  btnTexto:{
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#dd7b22'
+  box4:{
+    width: 150,
+    height: 250,
+    backgroundColor: 'blue'
   }
 })
 export default App
