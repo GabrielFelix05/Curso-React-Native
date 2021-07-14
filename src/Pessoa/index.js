@@ -3,24 +3,17 @@ import {View, Text, StyleSheet} from 'react-native'
 
 function Pessoa(props){
     return(
-      <View style={styles.areaPessoa}>
-        <Text style={styles.textPessoa}>{props.data.nome}</Text>
-        <Text style={styles.textPessoa}>{props.data.idade}</Text>
-        <Text style={styles.textPessoa}>{props.data.email}</Text>
+      <View>
+        <Text style={styles.text}>Nome: Sujeito programdor</Text>
+        <Text style={styles.text}>Cargo: Sujeito programdor</Text>
       </View>
     )
 }
 const styles = StyleSheet.create({
-    areaPessoa:{
-        backgroundColor: '#121212',
-        height: 200,
-        marginBottom: 15,
-        justifyContent: 'center'
-      },
-      textPessoa:{
+    text:{
         color: '#fff',
-        fontSize: 30
-      }
+        fontSize: 20
+    }
 })
 
 export default Pessoa
