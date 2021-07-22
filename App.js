@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import Pessoa from './src/Pessoa'
+import { Picker } from '@react-native-picker/picker'
 
 function App(){
+  const [carroSelecionado, setCarroSelecionado] = useState(0)
+  const [carros, setCarros] = useState([
+    {key: 1, nome: "Golf 1.6", valor: 62.000},
+    {key: 2, nome: "Saveiro", valor: 29.300},
+    {key: 3, nome: "Gol 1.0", valor: 25.200},
+    {key: 4, nome: "bmw", valor: 109.000}
+  ])
+
+  let carrosItens = carros.map((v, k) => {
+    return <Picker.Item key={k} value={k} label={v.nome}/>
+  })
   return(
     <View style={styles.container}>
-      <Text style={styles.text}>Sejá bem vindo!</Text>
-      <View style={styles.conteudo}>
-        <Text>{<Pessoa/>}</Text>
-      </View>
+     <Picker
+      selectedValue={carroSelecionado}
+      onValueChange={(itemValue, itemIndex) => setCarroSelecionado(itemValue)}
+     >
+       {carrosItens}
+     </Picker>
+      <Text>
+        R$: {carros[carroSelecionado].valor.toFixed(3)}
+      </Text>
     </View>
   )
 }
@@ -16,19 +32,7 @@ function App(){
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    alignItems: 'center',
-  },
-  text:{
-    fontSize: 22,
-    fontWeight: 'bold',
-    margin: 30
-  },
-  conteudo:{
-    width: '100%',
-    height: 300,
-    backgroundColor: '#0B0B61',
-    justifyContent: 'center',
-    padding: 15
+    marginTop: 35
   }
 })
 
