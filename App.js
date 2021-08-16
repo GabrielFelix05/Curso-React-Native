@@ -11,23 +11,26 @@ function App(){
       descricao: "Mais um dia de muitos bugs", 
       imgperfil: "https://sujeitoprogramador.com/instareact/fotoPerfil1.png", 
       publicacao: "https://sujeitoprogramador.com/instareact/foto1.png", 
-      likeada: true, likers: 1
+      likeada: true, 
+      likers: 0
     },
     {
       id: 2, 
-      nome: "Gabriel Felix", 
+      nome: "Felix", 
       descricao: "Mais um dia de muitos bugs", 
       imgperfil: "https://sujeitoprogramador.com/instareact/fotoPerfil2.png", 
       publicacao: "https://sujeitoprogramador.com/instareact/foto2.png", 
-      likeada: true, likers: 1
+      likeada: false, 
+      likers: 1
     },
     {
       id: 2, 
-      nome: "Gabriel Felix", 
+      nome: "Silva", 
       descricao: "Mais um dia de muitos bugs", 
       imgperfil: "https://sujeitoprogramador.com/instareact/fotoPerfil3.png", 
       publicacao: "https://sujeitoprogramador.com/instareact/foto3.png", 
-      likeada: true, likers: 1
+      likeada: false, 
+      likers: 30
     }
   ]) 
 
