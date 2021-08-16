@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useMemo} from 'react'
 import {View, Text, StyleSheet, Button, TextInput, TouchableOpacity} from 'react-native'
 import AsyncStorange from '@react-native-async-storage/async-storage'
 
@@ -22,6 +22,11 @@ function App(){
     setInput('')
   }
 
+  const letrasNome = useMemo(() => {
+    console.log('Pegando quantidade de letras ')
+    return nome.length
+  }, [nome])
+
   return(
     <View style={styles.container}>
       <View style={styles.viewInput}>
@@ -36,6 +41,7 @@ function App(){
       </View>
 
       <Text style={styles.nome}>{nome}</Text>
+      <Text style={styles.nome}>Possui: {letrasNome > 1 ? letrasNome + ' letras' : letrasNome + ' letra'}</Text>
     </View>
   )
 }
